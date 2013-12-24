@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Foodie</title>
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png" />
+    <% [196, 128, 64, 16].each do |size| %>
+      <link rel="shortcut icon" sizes="<%= size %>x<%= size %>" href="rsp-<%= size %>.png">
+      <link rel="apple-touch-icon" sizes="<%= size %>x<%= size %>" href="rsp-<%= size %>.png" />
+    <% end  %>
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="apple-touch-startup-image" href="/rsp-startup.png" />
+
+    <link href="foodie.css" media="all" rel="stylesheet" />
+  </head>
+
+  <body>
+    </script>
+
+    <div id="top-bar">
+      <div id="top-bar-row">
+        <div id="headline">
+          האוכל הגיע
+        </div>
+
+        <div id="company-logo">
+          <img src="<%= ENV["COMPANY_LOGO"] %>"  />
+        </div>
+      </div>
+    </div>
+    <div id="tableContainer">
+      <% if @dinner_rests %>
+        <div class="dinner">
+          <div class="subtitle">
+            <h2>
+              ארוחת ערב
+            </h2>
+          </div>
+          MISSING
+        </div>
+      <% end %>
+      <label for="filter"> סינון:</label> <input type="text" id="filter" />
+    </div>
+
+    <div class="restsTable">
+      <% @rests.each do |rest_id, rest|
+      id = rest["id"]
+      %>
+        <div class="restRow" id="rest_<%= id %>" onclick="confirmAnnounce(<%= id %>)" >
+          <div class="restImgDiv">
+            <div class="restImgContainer" >
+              <img class="restImg" src="<%= rest["logo"] %>" />
+            </div>
+          </div>
+
+          <div class="restName">
+            <%= rest["name"] %> </br>
+          </div>
+
+          <div class="restCheck">
+            <img id="status_img_<%= id %>"
+                 src="<%= rest["is_expected"] ? "check.png" : "pending.gif" %>"
+                 title="מצב שליחת הודעה" />
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="cache">
+      <img src="loading.gif">
+      <img src="check.png">
+    </div>
+    <script type="text/javascript" src="/jquery-1.10.2.min.js"> </script>
+    <script type="text/javascript">
+     window.restData = <%= @rests.to_json %>
+    </script>
+    <script type="text/javascript" src="/foodie.js" charset="utf-8"> </script>
+  </body>
+</html>

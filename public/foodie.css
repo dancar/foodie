@@ -1,0 +1,95 @@
+body {
+  text-align: center;
+  direction: rtl;
+}
+
+#top-bar {
+  display: table;
+  width: 100%;
+  border-bottom: 1px solid silver;
+  margin-bottom: 10px;
+}
+
+#top-bar-row {
+  display: table-row;
+}
+
+#headline {
+  display: table-cell;
+  text-align: right;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+#company-logo {
+  display: table-cell;
+  background: white;
+  text-align: left;
+}
+#company-logo img {
+  height: 20px;
+}
+
+#linksDiv {
+  margin-bottom: 7px;
+}
+
+
+.dinner {
+  background-color: #E7E4F5;
+  margin-bottom: 5px;
+  border: 1px solid gray;
+
+  h2 {
+    text-decoration: underline;
+    font-size: 1.1em;
+  }
+}
+
+.restsTable {
+  display: table;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.restRow {
+  display: table-row;
+}
+
+.restRow > div {
+  display: table-cell;
+  border-style: solid;
+  border-color: silver;
+  border-width: 1px 0px 0px 0px;
+  cursor: pointer;
+  vertical-align: middle;
+  height: 80px;
+}
+
+.restImgDiv {
+  padding: 5px;
+}
+
+.restImgContainer {
+  border-collapse: single;
+  display:table-cell;
+  background: white;
+  height: 70px;
+  width: 70px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+
+.restHover {
+  color: darkblue;
+}
+
+#filter {
+  margin-bottom: 10px;
+}
+
+#cache {
+  visibility: hidden;
+}

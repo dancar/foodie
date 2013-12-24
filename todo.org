@@ -1,0 +1,4 @@
+* TODO add ENV based configuration
+* TODO Fix Dinners
+* TODO Implement  all/only active
+* TODO Switch to HAML?
