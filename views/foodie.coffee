@@ -1,18 +1,9 @@
-last_filter = ""
-
 # Find rest id according to dom row
 parse_row_id = (row) ->
   parseInt(row.id.match(/(rest|dinner)_(-?[\d]+)/)[2])
 
-invoke_filtering = () ->
-  filter_text = $("#filter").val()
-  return if filter_text == last_filter
-  for id, rest of window.restData
-    row = $(rest.row)
-    if filter(filter_text, rest.name) then row.show() else row.hide()
-  last_filter = filter_text
-
 filter = (filter_text, rest_name) ->
+  return true unless filter_text
   # "fuzzy" fuzzy matching: true iff all chars from filter_text are somewhere in rest_name (=orderly, but not consequently)
   pos = -1
   for char, index in filter_text.split("")
@@ -38,6 +29,18 @@ window.confirmAnnounce = (id, dinner) ->
         img.attr("src", previousImgSrc)
         window.alert("שליחת הודעה עבור" + " \"" + rest.name + "\" " + "נכשלה. באסוש.")
 
+window.rest_visible = (rest) ->
+  window.showAll || rest.is_expected
+
+window.showRests = () ->
+  filterText = $("#filter").val()
+  for id, rest of window.restData
+    showRest = false
+    showRest ||= window.showAll
+    showRest ||= rest.is_expected
+    showRest &&= filter(filterText, rest.name)
+    rest.row.style.display = if showRest then "block" else "none"
+
 
 $(document).ready ->
   $(".restRow").hover( ->
@@ -50,4 +53,6 @@ $(document).ready ->
   $(".restRow").each (index, row) ->
     rest_id = parse_row_id(row)
     window.restData[rest_id].row = row
-  setInterval invoke_filtering, 500
+  setInterval showRests, 750
+  window.showAll = false
+  showRests()

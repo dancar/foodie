@@ -50,7 +50,7 @@
       <% @rests.each do |rest_id, rest|
       id = rest["id"]
       %>
-        <div class="restRow" id="rest_<%= id %>" onclick="confirmAnnounce(<%= id %>)" >
+        <div class="restRow" id="rest_<%= id %>" style="display: none;" onclick="confirmAnnounce(<%= id %>)" >
           <div class="restImgDiv">
             <div class="restImgContainer" >
               <img class="restImg" src="<%= rest["logo"] %>" />
