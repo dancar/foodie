@@ -1,4 +1,5 @@
 require_relative 'givebyte'
+require 'pp'
 
 namespace :givebyte do
 
@@ -7,12 +8,13 @@ namespace :givebyte do
     GiveByte.reset_rests
   end
 
+  desc "Update rests cache"
   task :update_rests do
     GiveByte.update_rests
   end
 
+  desc "Display rests cache"
   task :get_rests do
-    require 'pp'
     pp GiveByte.get_rests
   end
 

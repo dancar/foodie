@@ -62,6 +62,7 @@ private
         "logo" => rest["RestaurantLogoUrl"],
         "id" => id,
         "pool_sum" => pool_sum,
+        "message_sent" => false,
         "is_expected" => pool_sum > 0
       }
       ans
