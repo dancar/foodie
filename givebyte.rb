@@ -83,8 +83,7 @@ private
     end
 
     # Load all dinners:
-    dinner_data = JSON.load(File.read(File.expand_path("../dinners.json", __FILE__))) rescue {}
-    all_dinners = dinner_data['dinners']
+    all_dinners = JSON.load(File.read(File.expand_path("../dinners.json", __FILE__))) rescue {}
     all_dinners.each do |id, dinner|
       dinner['is_dinner'] = true
     end

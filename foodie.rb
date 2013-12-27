@@ -28,14 +28,20 @@ MAIL_BODY_TEMPLATE = %q[
 <h3> המשלוח של %s הגיע. </h3>
 <p> %s </p>
 ]
+
 MAIL_DINNER_BODY_TEMPLATE = %q[
 <h3> ארוחת הערב - %s - הגיעה!</h3>
 <p> %s </p>
 ]
+
+MAIL_FOOTER = %q[
+<br /> <br />________________________________<br />
+Announcement sent using <a href="%s">Foodie</a>
+] % ENV["FOODIE_URL"]
 MAIL_DEFAULT_COMMENT = 'בתיאבון...'
 
 get '/' do
-
+  @is_dinner_time = Time.now > Time.parse(ENV["DINNER_TIME"])
   @rests = GiveByte.get_rests
   puts @rests
   erb :index
@@ -56,6 +62,7 @@ post '/announce' do
   is_dinner = rest["is_dinner"]
   body_template = is_dinner ? MAIL_DINNER_BODY_TEMPLATE : MAIL_BODY_TEMPLATE
   body = body_template % [rest_name, comments]
+  body << MAIL_FOOTER
 
   Pony.mail({
     html_body: body,

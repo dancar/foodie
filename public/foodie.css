@@ -119,12 +119,13 @@ body {
   border-spacing: 0px;
   border-collapse: collapse;
   border-width: 0px;
+  width: 400px;
 }
 
 .tabsRow {
   display: table-row;
-
 }
+
 .tab {
   background: gray;
   display: table-cell;
@@ -156,7 +157,6 @@ body {
 
 .restRow {
   display: table-row;
-  background: white;
   color: navy;
 }
 
@@ -179,7 +179,7 @@ body {
 .restRowDiv {
   border-top: 8px solid silver;
   border-bottom: 8px solid silver;
-
+  background: white;
   display: table-cell;
   cursor: pointer;
   vertical-align: middle;
