@@ -28,9 +28,11 @@ MAIL_BODY_TEMPLATE = %q[
 <h3> המשלוח של %s הגיע. </h3>
 <p> %s </p>
 ]
+MAIL_DINNER_BODY_TEMPLATE = %q[
+<h3> ארוחת הערב - %s - הגיעה!</h3>
+<p> %s </p>
+]
 MAIL_DEFAULT_COMMENT = 'בתיאבון...'
-
-DINNER_DATA = JSON.load(File.read(File.expand_path("../dinners.json", __FILE__))) rescue nil
 
 get '/' do
 
@@ -48,11 +50,16 @@ post '/announce' do
   comments = MAIL_DEFAULT_COMMENT if comments.blank?
 
   rest_id = request['rest_id']
-  rest_name = GiveByte.get_rest_name(rest_id)
+  rest = GiveByte.get_rests[rest_id]
+  rest_name = rest["name"]
+  subject = MAIL_SUBJECT_TEMPLATE % rest_name
+  is_dinner = rest["is_dinner"]
+  body_template = is_dinner ? MAIL_DINNER_BODY_TEMPLATE : MAIL_BODY_TEMPLATE
+  body = body_template % [rest_name, comments]
 
   Pony.mail({
-    html_body: MAIL_BODY_TEMPLATE % [rest_name, comments],
-    subject: MAIL_SUBJECT_TEMPLATE % rest_name
+    html_body: body,
+    subject: subject
   }.merge(MAIL_OPTIONS))
 
   GiveByte.set_announced(rest_id)

@@ -30,15 +30,14 @@ window.confirmAnnounce = (id, dinner) ->
         window.alert("שליחת הודעה עבור" + " \"" + rest.name + "\" " + "נכשלה. באסוש.")
 
 window.rest_visible = (rest) ->
-  window.showAll || rest.is_expected
+  ans = window.currentTab == "allTab"
+  ans ||= window.currentTab == "expectedTab" && rest.is_expected
+  ans ||= window.currentTab == "dinnersTab" && rest.is_dinner
 
 window.showRests = () ->
   filterText = $("#filter").val()
   for id, rest of window.restData
-    showRest = false
-    showRest ||= window.showAll
-    showRest ||= rest.is_expected
-    showRest &&= filter(filterText, rest.name)
+    showRest = rest_visible(rest) && filter(filterText, rest.name)
     rest.row.style.display = if showRest then "table-row" else "none"
 
 
@@ -50,7 +49,7 @@ $(document).ready ->
   )
 
   $('.tab').click (e)->
-    window.showAll = e.target.id == "allTab"
+    window.currentTab = e.target.id
     $(".tab").removeClass "selectedTab"
     $(e.target).addClass "selectedTab"
     showRests()
@@ -60,5 +59,5 @@ $(document).ready ->
     rest_id = parse_row_id(row)
     window.restData[rest_id].row = row
   setInterval showRests, 750
-  window.showAll = false
+  window.currentTab = "expectedTab"
   showRests()

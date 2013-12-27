@@ -4,3 +4,5 @@
 * TODO Switch to HAML?
 * DONE Send email
 * TODO Rest Logo Caching
+* TODO filter button
+* TODO "No delivery expected"

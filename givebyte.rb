@@ -8,7 +8,7 @@ module GiveByte
   end
 
   def self.get_rests
-    load_rests()
+    load_rests
   end
 
   def self.update_rests
@@ -26,14 +26,8 @@ module GiveByte
     end
   end
 
-  def self.get_rest_name(rest_id)
-    all_rests = self.get_rests()
-    rest = all_rests[rest_id]
-    rest['name']
-  end
-
   def self.set_announced(rest_id)
-    all_rests = self.get_rests()
+    all_rests = load_rests()
     rest = all_rests[rest_id]
     rest['announced'] = true
     self.save_rests(all_rests)
@@ -44,7 +38,7 @@ private
   RESTS_FILE = File.expand_path('../rests.json', __FILE__)
 
   def self.load_rests()
-    JSON.parse(File.read RESTS_FILE) rescue {}
+    JSON.parse(File.read RESTS_FILE)
   end
 
   def self.save_rests(rests)
@@ -81,14 +75,20 @@ private
         'name' => rest['RestaurantName'],
         'logo' => rest['RestaurantLogoUrl'],
         'id' => id,
-        'pool_sum' => pool_sum,
+        'is_dinner' => false,
         'message_sent' => false,
         'is_expected' => pool_sum > 0
       }
       ans
     end
 
-    rests
+    # Load all dinners:
+    dinner_data = JSON.load(File.read(File.expand_path("../dinners.json", __FILE__))) rescue {}
+    all_dinners = dinner_data['dinners']
+    all_dinners.each do |id, dinner|
+      dinner['is_dinner'] = true
+    end
+    rests.merge all_dinners
   end
 
 end
