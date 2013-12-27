@@ -49,6 +49,12 @@ $(document).ready ->
     $(this).removeClass("restHover")
   )
 
+  $('.tab').click (e)->
+    window.showAll = e.target.id == "allTab"
+    $(".tab").removeClass "selectedTab"
+    $(e.target).addClass "selectedTab"
+    showRests()
+
   # Find all rest rows and bind them
   $(".restRow").each (index, row) ->
     rest_id = parse_row_id(row)

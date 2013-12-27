@@ -104,16 +104,52 @@ body {
 }
 
 .dinner h2 {
-    text-decoration: underline;
-    font-size: 1.1em;
+  text-decoration: underline;
+  font-size: 1.1em;
 }
 
+#tabsContainer {
+  margin: auto;
+  margin-top: 30px;
+  padding: 0px;
+  font-size: 1.2em;
+  height: 20px;
+  text-align: right;
+  display: table;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  border-width: 0px;
+}
+
+.tabsRow {
+  display: table-row;
+
+}
+.tab {
+  background: gray;
+  display: table-cell;
+  padding: 10px;
+  border-radius: 13px 13px 0px 0px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.selectedTab {
+  background-color: rgb(184, 56, 56);
+  cursor: auto;
+}
+
+#tableContainer {
+  background-color: rgb(184, 56, 56);
+  display: table-cell;
+
+}
 
 .restsTable {
   display: table;
+  width: 360px;
   margin: auto;
-  margin-top: 20px;
-  width: 380px;
+  margin-top: 0px;
   border-spacing: 0px 15px;
   border-collapse: separate;
 }
@@ -125,10 +161,10 @@ body {
 }
 
 .restName {
-  white-space: nowrap;
   font-weight: bolder;
   font-size: 1.2em;
-  width: 100%;
+  text-align: center;
+  width: 80%;
 }
 
 .restImg {

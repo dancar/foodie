@@ -30,7 +30,10 @@ MAIL_BODY_TEMPLATE = %q[
 ]
 MAIL_DEFAULT_COMMENT = 'בתיאבון...'
 
+DINNER_DATA = JSON.load(File.read(File.expand_path("../dinners.json", __FILE__))) rescue nil
+
 get '/' do
+
   @rests = GiveByte.get_rests
   puts @rests
   erb :index

@@ -1,0 +1,39 @@
+{
+  "dinner_time": "17:30",
+  "timezone": "+0300",
+
+  "weekly_menu": {
+    "Sunday": [-1],
+    "Monday": [-2, -3, -4],
+    "Tuesday": [-1],
+    "Wednesday": [-1],
+    "Thursday": [-1],
+    "Friday": [-1],
+    "Saturday": [-1]
+  },
+  "dinners": {
+    "-1": {
+      "name": "סנדוויצ'ים",
+      "id": -1,
+      "logo": "sandwiches.jpg"
+    },
+
+    "-2": {
+      "name": "פיצה רגילה",
+      "id": -2,
+      "logo": "pizza.jpg"
+    },
+
+    "-3": {
+      "name": "פיצה כשרה",
+      "id": -3,
+      "logo": "kosherpizza.jpg"
+    },
+
+    "-4": {
+      "name": "פיצה טיבעונית",
+      "id": -4,
+      "logo": "veganpizza.jpg"
+    }
+  }
+}

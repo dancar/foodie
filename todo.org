@@ -1,6 +1,6 @@
-* TODO add ENV based configuration
+* DONE add ENV based configuration
 * TODO Fix Dinners
-* TODO Implement  all/only active
+* DONE Implement  all/only active
 * TODO Switch to HAML?
-* TODO Send email
+* DONE Send email
 * TODO Rest Logo Caching

@@ -31,52 +31,61 @@
         </div>
       </div>
     </div>
+    <span id="filterContainer">
+      <label for="filter"> סינון:</label> <input type="text" id="filter" />
+    </span>
 
-    <div id="tableContainer">
-      <% if @dinner_rests %>
-      <div class="dinner">
-        <div class="subtitle">
-          <h2>
-            ארוחת ערב
-          </h2>
+    <div id="tabsContainer" >
+      <div id="tabsRow">
+        <div class="tab selectedTab" id="expectedTab">
+
+          משלוחים צפויים
+
         </div>
-        MISSING
+        <div class="tab" id="allTab">
+
+          כל המסעדות
+
+        </div>
+        <div class="tab" id="dinnersTab">
+          ארוחת ערב
+        </div>
       </div>
-      <% end %>
-      <span id="filterContainer">
-        <label for="filter"> סינון:</label> <input type="text" id="filter" />
-      </span>
-    </div>
 
-    <div class="restsTable">
-      <% @rests.each do |rest_id, rest|
-         id = rest["id"]
-         %>
-      <div class="restRow" id="rest_<%= id %>" style="display: none;" onclick="confirmAnnounce(<%= id %>)" >
+      <div class="tabsRow" >
+        <div id="tableContainer">
+          <div class="restsTable">
+            <% @rests.each do |rest_id, rest|
+               id = rest["id"]
+               %>
+            <div class="restRow" id="rest_<%= id %>" style="display: none;" onclick="confirmAnnounce(<%= id %>)" >
 
-        <div class="restRowDiv restImgContainer" >
-          <img class="restImg" src="<%= rest["logo"] %>" />
+              <div class="restRowDiv restImgContainer" >
+                <img class="restImg" src="<%= rest["logo"] %>" />
+              </div>
+
+              <div class="restRowDiv restName">
+                <%= rest["name"] %> </br>
+              </div>
+
+              <div class="restRowDiv restCheck">
+                <img id="status_img_<%= id %>"
+                     class="restCheckImg"
+                     src="<%= rest["announced"] ? "check.png" : "pending.gif" %>"
+                     title="מצב שליחת הודעה" />
+              </div>
+
+            </div>
+            <% end %>
+          </div>
         </div>
-
-        <div class="restRowDiv restName">
-          <%= rest["name"] %> </br>
-        </div>
-
-        <div class="restRowDiv restCheck">
-          <img id="status_img_<%= id %>"
-               class="restCheckImg"
-               src="<%= rest["announced"] ? "check.png" : "pending.gif" %>"
-               title="מצב שליחת הודעה" />
-        </div>
-
       </div>
-      <% end %>
     </div>
-
-    <script type="text/javascript" src="/jquery-1.10.2.min.js"> </script>
-    <script type="text/javascript">
-      window.restData = <%= @rests.to_json %>
-    </script>
-    <script type="text/javascript" src="/foodie.js" charset="utf-8"> </script>
-  </body>
+</div>
+<script type="text/javascript" src="/jquery-1.10.2.min.js"> </script>
+<script type="text/javascript">
+  window.restData = <%= @rests.to_json %>
+</script>
+<script type="text/javascript" src="/foodie.js" charset="utf-8"> </script>
+</body>
 </html>
