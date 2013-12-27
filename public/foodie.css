@@ -79,7 +79,8 @@ body {
   vertical-align: middle;
   font-weight: bolder;
   font-family: serif;
-  letter-spacing: 12px;
+  letter-spacing: 7px;
+  white-space: nowrap;
   color: white;
 }
 
@@ -119,7 +120,7 @@ body {
   border-spacing: 0px;
   border-collapse: collapse;
   border-width: 0px;
-  width: 400px;
+  width: 340x;
 }
 
 .tabsRow {
@@ -169,6 +170,7 @@ body {
 
 .restImg {
   width: 75px;
+  margin-right: 5px;
 }
 
 .restImgContainer {
