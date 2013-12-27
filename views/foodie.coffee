@@ -11,6 +11,10 @@ filter = (filter_text, rest_name) ->
     return false if pos == -1
   true
 
+window.updateFilter = () ->
+  window.filterText = $("#filter").val()
+  window.showRests()
+
 window.confirmAnnounce = (id, dinner) ->
   rest = window.restData[id]
   comments = window.prompt("הערות עבור המשלוח של" + "\n" + rest.name)
@@ -35,9 +39,8 @@ window.rest_visible = (rest) ->
   ans ||= window.currentTab == "dinnersTab" && rest.is_dinner
 
 window.showRests = () ->
-  filterText = $("#filter").val()
   for id, rest of window.restData
-    showRest = rest_visible(rest) && filter(filterText, rest.name)
+    showRest = rest_visible(rest) && filter(window.filterText, rest.name)
     rest.row.style.display = if showRest then "table-row" else "none"
 
 
@@ -58,6 +61,5 @@ $(document).ready ->
   $(".restRow").each (index, row) ->
     rest_id = parse_row_id(row)
     window.restData[rest_id].row = row
-  setInterval showRests, 750
   window.currentTab = "expectedTab"
   showRests()

@@ -86,7 +86,7 @@ body {
 
 
 #filter {
-  width: 250px;
+  width: 200px;
   margin-bottom: 10px;
 }
 
@@ -95,6 +95,7 @@ body {
   font-size: 1.4em;
   text-align: right;
   martin: auto;
+  display: inline-block;
 }
 
 .dinner {

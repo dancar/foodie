@@ -1,8 +1,9 @@
 * DONE add ENV based configuration
-* TODO Fix Dinners
+* DONE Fix Dinners
 * DONE Implement  all/only active
 * TODO Switch to HAML?
 * DONE Send email
 * TODO Rest Logo Caching
-* TODO filter button
+* DONE filter button
 * TODO "No delivery expected"
+* TODO Aggregate simultanous announcements

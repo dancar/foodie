@@ -31,9 +31,15 @@
         </div>
       </div>
     </div>
-    <span id="filterContainer">
-      <label for="filter"> סינון:</label> <input type="text" id="filter" />
-    </span>
+
+    <form action="javascript:updateFilter()"
+          id="filterContainer"
+          onreset="setTimeout(updateFilter, 1)" >
+      <label for="filter"> סינון:</label>
+      <input type="text" id="filter" />
+      <input type="submit" value="סנן" />
+      <input type="reset" value="נקה"  />
+    </form>
 
     <div id="tabsContainer" >
       <div id="tabsRow">
