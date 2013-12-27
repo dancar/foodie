@@ -9,8 +9,8 @@
 
     <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png" />
     <% [196, 128, 64, 16].each do |size| %>
-      <link rel="shortcut icon" sizes="<%= size %>x<%= size %>" href="rsp-<%= size %>.png">
-      <link rel="apple-touch-icon" sizes="<%= size %>x<%= size %>" href="rsp-<%= size %>.png" />
+    <link rel="shortcut icon" sizes="<%= size %>x<%= size %>" href="rsp-<%= size %>.png">
+    <link rel="apple-touch-icon" sizes="<%= size %>x<%= size %>" href="rsp-<%= size %>.png" />
     <% end  %>
     <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="apple-touch-startup-image" href="/rsp-startup.png" />
@@ -19,64 +19,63 @@
   </head>
 
   <body>
-    </script>
 
+    <div id="cache">
+      <img src="loading.gif" />
+      <img src="check.png"/>
+    </div>
     <div id="top-bar">
       <div id="top-bar-row">
         <div id="headline">
-          האוכל הגיע
-        </div>
-
-        <div id="company-logo">
-          <img src="<%= ENV["COMPANY_LOGO"] %>"  />
+          <%= ENV["PAGE_HEADLINE"] %>
         </div>
       </div>
     </div>
+
     <div id="tableContainer">
       <% if @dinner_rests %>
-        <div class="dinner">
-          <div class="subtitle">
-            <h2>
-              ארוחת ערב
-            </h2>
-          </div>
-          MISSING
+      <div class="dinner">
+        <div class="subtitle">
+          <h2>
+            ארוחת ערב
+          </h2>
         </div>
+        MISSING
+      </div>
       <% end %>
-      <label for="filter"> סינון:</label> <input type="text" id="filter" />
+      <span id="filterContainer">
+        <label for="filter"> סינון:</label> <input type="text" id="filter" />
+      </span>
     </div>
 
     <div class="restsTable">
       <% @rests.each do |rest_id, rest|
-      id = rest["id"]
-      %>
-        <div class="restRow" id="rest_<%= id %>" style="display: none;" onclick="confirmAnnounce(<%= id %>)" >
-          <div class="restImgDiv">
-            <div class="restImgContainer" >
-              <img class="restImg" src="<%= rest["logo"] %>" />
-            </div>
-          </div>
+         id = rest["id"]
+         %>
+      <div class="restRow" id="rest_<%= id %>" style="display: none;" onclick="confirmAnnounce(<%= id %>)" >
 
-          <div class="restName">
-            <%= rest["name"] %> </br>
-          </div>
-
-          <div class="restCheck">
-            <img id="status_img_<%= id %>"
-                 src="<%= rest["message_sent"] ? "check.png" : "pending.gif" %>"
-                 title="מצב שליחת הודעה" />
-          </div>
+        <div class="restRowDiv restImgContainer" >
+          <img class="restImg" src="<%= rest["logo"] %>" />
         </div>
+
+        <div class="restRowDiv restName">
+          <%= rest["name"] %> </br>
+        </div>
+
+        <div class="restRowDiv restCheck">
+          <img id="status_img_<%= id %>"
+               class="restCheckImg"
+               src="<%= rest["announced"] ? "check.png" : "pending.gif" %>"
+               title="מצב שליחת הודעה" />
+        </div>
+
+      </div>
       <% end %>
     </div>
 
-    <div id="cache">
-      <img src="loading.gif">
-      <img src="check.png">
-    </div>
     <script type="text/javascript" src="/jquery-1.10.2.min.js"> </script>
     <script type="text/javascript">
-     window.restData = <%= @rests.to_json %>
+      window.restData = <%= @rests.to_json %>
     </script>
     <script type="text/javascript" src="/foodie.js" charset="utf-8"> </script>
   </body>

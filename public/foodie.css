@@ -1,95 +1,176 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* ================================================================*/
 body {
   text-align: center;
   direction: rtl;
+  padding: 0px;
+  margin: 0px;
+  border-width: 0px;
+  background: black;
+  color: white;
 }
 
 #top-bar {
   display: table;
+  border-width: 0px;
   width: 100%;
-  border-bottom: 1px solid silver;
-  margin-bottom: 10px;
+  margin-bottom: 17px;
+  height: 33px;
+  font-size: 1.3em;
 }
 
 #top-bar-row {
   display: table-row;
+  background-color: rgb(184, 56, 56);
 }
 
 #headline {
   display: table-cell;
-  text-align: right;
+  text-align: center;
   vertical-align: middle;
-  font-weight: bold;
+  font-weight: bolder;
+  font-family: serif;
+  letter-spacing: 12px;
+  color: white;
 }
 
-#company-logo {
-  display: table-cell;
-  background: white;
-  text-align: left;
-}
-#company-logo img {
-  height: 20px;
+
+#filter {
+  width: 250px;
+  margin-bottom: 10px;
 }
 
-#linksDiv {
-  margin-bottom: 7px;
+#filterContainer{
+  width: 380px;
+  font-size: 1.4em;
+  text-align: right;
+  martin: auto;
 }
-
 
 .dinner {
   background-color: #E7E4F5;
   margin-bottom: 5px;
   border: 1px solid gray;
 
-  h2 {
+}
+
+.dinner h2 {
     text-decoration: underline;
     font-size: 1.1em;
-  }
 }
+
 
 .restsTable {
   display: table;
   margin: auto;
   margin-top: 20px;
+  width: 380px;
+  border-spacing: 0px 15px;
+  border-collapse: separate;
 }
 
 .restRow {
   display: table-row;
+  background: white;
+  color: navy;
 }
 
-.restRow > div {
-  display: table-cell;
-  border-style: solid;
-  border-color: silver;
-  border-width: 1px 0px 0px 0px;
-  cursor: pointer;
-  vertical-align: middle;
-  height: 80px;
+.restName {
+  white-space: nowrap;
+  font-weight: bolder;
+  font-size: 1.2em;
+  width: 100%;
 }
 
-.restImgDiv {
-  padding: 5px;
+.restImg {
+  width: 75px;
 }
 
 .restImgContainer {
-  border-collapse: single;
-  display:table-cell;
-  background: white;
-  height: 70px;
-  width: 70px;
-  border: 1px solid gray;
-  border-radius: 10px;
+  border-right: 10px solid silver;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.restRowDiv {
+  border-top: 8px solid silver;
+  border-bottom: 8px solid silver;
+
+  display: table-cell;
+  cursor: pointer;
   vertical-align: middle;
+  height: 80px;
+  margin: 10px;
 }
 
-
-.restHover {
-  color: darkblue;
+.restCheck {
+  border-right: 0px;
+  border-left-width: 8px;
+  border-style: solid;
+  border-color: silver;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding: 0px 10px;
+  background-color: whitesmoke;
 }
 
-#filter {
-  margin-bottom: 10px;
+.restCheckImg {
+  width: 32px;
+}
+
+.restHover .restCheck  {
+  background: rgb(190, 233, 247);
 }
 
 #cache {
+  height: 0px;
   visibility: hidden;
 }

@@ -2,3 +2,5 @@
 * TODO Fix Dinners
 * TODO Implement  all/only active
 * TODO Switch to HAML?
+* TODO Send email
+* TODO Rest Logo Caching

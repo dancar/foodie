@@ -19,10 +19,10 @@ window.confirmAnnounce = (id, dinner) ->
     previousImgSrc = img.attr("src")
     img.attr("src", "loading.gif")
     $.ajax "announce",
+      type: "POST"
       data:
         rest_id: id
         comments: comments
-        dinner: dinner && "true"
       success: ->
         img.attr("src", "check.png")
       error: ->
@@ -39,7 +39,7 @@ window.showRests = () ->
     showRest ||= window.showAll
     showRest ||= rest.is_expected
     showRest &&= filter(filterText, rest.name)
-    rest.row.style.display = if showRest then "block" else "none"
+    rest.row.style.display = if showRest then "table-row" else "none"
 
 
 $(document).ready ->
