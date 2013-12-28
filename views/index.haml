@@ -2,17 +2,20 @@
 %html
   %head
     %title Foodie
-    %meta{content: "initial-scale = 1.0,maximum-scale = 1.0", name: "viewport"}/
-    %meta{content: "yes", name: "mobile-web-app-capable"}/
-    %meta{content: "yes", name: "apple-mobile-web-app-capable"}/
-    %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{name: "viewport", content: "initial-scale = 1.0,maximum-scale = 1.0"}/
+    %meta{name: "mobile-web-app-capable", content: "yes"}/
+    %meta{name: "apple-mobile-web-app-capable", content: "yes"}/
+    %meta{name: "ROBOTS", content: "NOINDEX,NOFOLLOWS"}/
+    %meta{"http-equiv" => "Content-Type", content: "text/html; charset=utf-8"}/
+
     %link{href: "/favicon.png", rel: "icon", sizes: "128x128", type: "image/png"}/
-    - [196, 128, 64, 16].each do |size|
-      %link{href: "rsp-#{size}.png", rel: "shortcut icon", sizes: "#{size}x#{size}"}/
-      %link{href: "rsp-#{size}.png", rel: "apple-touch-icon", sizes: "#{size}x#{size}"}/
     %link{href: "/favicon.png", rel: "apple-touch-icon"}/
     %link{href: "/rsp-startup.png", rel: "apple-touch-startup-image"}/
     %link{href: "foodie.css", media: "all", rel: "stylesheet"}/
+    - [196, 128, 64, 16].each do |size|
+      %link{href: "rsp-#{size}.png", rel: "shortcut icon", sizes: "#{size}x#{size}"}/
+      %link{href: "rsp-#{size}.png", rel: "apple-touch-icon", sizes: "#{size}x#{size}"}/
+
   %body
     #cache
       %img{src: "loading.gif"}/
@@ -27,6 +30,9 @@
               %img#pepper{src: "pepper.png"}/
           .cell{style: "text-align: right"}
             Foodie
+    #targetMail
+      To:
+      = @mail_to.split("@").first
     #formContainer
       %form#filterContainer{action: "#", onreset: "setTimeout(updateFilter, 1)", onsubmit: "updateFilter()"}
         %label{for: "filter"} סינון:
@@ -58,7 +64,8 @@
                   %img.restCheckImg{id: "status_img_#{id}", src: rest["announced"] ? "check.png" : "pending.gif", title: "מצב שליחת הודעה"}/
       .row
         #empty.cell
-          לא ידוע לי על משלוחים צפויים.
+          אין
+          ☹
     %script{src: "/jquery-1.10.2.min.js", type: "text/javascript"} :cdata
     :javascript
       window.restData = #{@rests.to_json}

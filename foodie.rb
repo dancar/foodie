@@ -44,8 +44,7 @@ MAIL_DEFAULT_COMMENT = 'בתיאבון...'
 get '/' do
   @is_dinner_time = Time.now > Time.parse(ENV["DINNER_TIME"])
   @rests = GiveByte.get_rests
-  puts @rests
-#   erb :index
+  @mail_to = ENV['MAIL_TO']
   haml :index
 end
 
