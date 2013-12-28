@@ -51,8 +51,14 @@ body {
   margin: 2px;
 }
 
+#targetMail {
+  margin-top: 40px;
+  color: silver;
+  font-size: small;
+}
+
 #filterContainer {
-  margin-top: 50px;
+  margin-top: 5px;
 }
 #filter {
   margin-bottom: 10px;
@@ -86,6 +92,7 @@ body {
 #metatable {
   display: table;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .row {
