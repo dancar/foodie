@@ -1,0 +1,64 @@
+!!!
+%html
+  %head
+    %title Foodie
+    %meta{content: "initial-scale = 1.0,maximum-scale = 1.0", name: "viewport"}/
+    %meta{content: "yes", name: "mobile-web-app-capable"}/
+    %meta{content: "yes", name: "apple-mobile-web-app-capable"}/
+    %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %link{href: "/favicon.png", rel: "icon", sizes: "128x128", type: "image/png"}/
+    - [196, 128, 64, 16].each do |size|
+      %link{href: "rsp-#{size}.png", rel: "shortcut icon", sizes: "#{size}x#{size}"}/
+      %link{href: "rsp-#{size}.png", rel: "apple-touch-icon", sizes: "#{size}x#{size}"}/
+    %link{href: "/favicon.png", rel: "apple-touch-icon"}/
+    %link{href: "/rsp-startup.png", rel: "apple-touch-startup-image"}/
+    %link{href: "foodie.css", media: "all", rel: "stylesheet"}/
+  %body
+    #cache
+      %img{src: "loading.gif"}/
+      %img{src: "check.png"}/
+    #top-bar
+      #top-bar-row
+        #headline.cell
+          פודי
+        #headlineCenter.cell
+          #blackHole
+            %img#pepper{src: "pepper.png"}/
+        .cell{style: "text-align: right"}
+          Foodie
+    #formContainer
+      %form#filterContainer{action: "#", onreset: "setTimeout(updateFilter, 1)", onsubmit: "updateFilter()"}
+        %label{for: "filter"} סינון:
+        %input#filter{type: "text"}/
+        %input{type: "submit", value: "סנן"}/
+        %input{type: "reset", value: "נקה"}/
+    #metatable
+      .row
+        .cell
+          #tabsContainer
+            .row
+              #expectedTab.tab.selectedTab
+                משלוחים צפויים
+              #allTab.tab
+                כל המסעדות
+              #dinnersTab.tab
+                ארוחת ערב
+      .row
+        #tableContainer
+          .restsTable
+            - @rests.each do |rest_id, rest|
+            - id = rest["id"]
+              .restRow{id: "rest_#{id}", onclick: "confirmAnnounce(#{id})", style: "display: none;"}
+                .restRowDiv.restImgContainer
+                  %img.restImg{src: rest["logo"]}/
+                .restRowDiv.restName
+                  = rest["name"]
+                .restRowDiv.restCheck
+                  %img.restCheckImg{id: "status_img_#{id}", src: rest["announced"] ? "check.png" : "pending.gif", title: "מצב שליחת הודעה"}/
+      .row
+        #empty.cell
+          לא ידוע לי על משלוחים צפויים.
+    %script{src: "/jquery-1.10.2.min.js", type: "text/javascript"} :cdata
+    :javascript
+      window.restData = #{@rests.to_json}
+    %script{charset: "utf-8", src: "/foodie.js", type: "text/javascript"} :cdata

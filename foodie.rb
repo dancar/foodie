@@ -2,8 +2,9 @@
 require 'sinatra'
 require 'json'
 require 'pony'
-require_relative 'givebyte'
 require 'yaml'
+require 'haml'
+require_relative 'givebyte'
 
 YAML.load(File.read(File.expand_path('../.env', __FILE__))).each do |key, value|
   ENV[key] = value
@@ -44,7 +45,8 @@ get '/' do
   @is_dinner_time = Time.now > Time.parse(ENV["DINNER_TIME"])
   @rests = GiveByte.get_rests
   puts @rests
-  erb :index
+#   erb :index
+  haml :index
 end
 
 get '/foodie.js' do
