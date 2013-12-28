@@ -8,15 +8,13 @@ body {
   color: white;
 }
 
-#top-bar-container {
+#top-bar{
   position: fixed;
   width: 100%;
   text-align: center;
   border-bottom: 2px solid black;
-}
-#top-bar {
+  background: #d80000;
   display: table;
-  width: 340px;
   margin: auto;
   height: 33px;
   font-size: 1.3em;
