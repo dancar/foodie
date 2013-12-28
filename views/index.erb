@@ -32,8 +32,9 @@
       </div>
     </div>
 
-    <form action="javascript:updateFilter()"
-          id="filterContainer"
+    <form id="filterContainer"
+          action="#"
+          onsubmit="updateFilter()"
           onreset="setTimeout(updateFilter, 1)" >
       <label for="filter"> סינון:</label>
       <input type="text" id="filter" />
