@@ -8,11 +8,16 @@ body {
   color: white;
 }
 
+#top-bar-container {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
 #top-bar {
   display: table;
-  border-width: 0px;
-  width: 100%;
-  margin-bottom: 17px;
+  width: 340px;
+  margin: auto;
   height: 33px;
   font-size: 1.3em;
 }
@@ -48,6 +53,9 @@ body {
   margin: 2px;
 }
 
+#filterContainer {
+  margin-top: 50px;
+}
 #filter {
   margin-bottom: 10px;
 }

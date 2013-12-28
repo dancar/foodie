@@ -17,15 +17,16 @@
     #cache
       %img{src: "loading.gif"}/
       %img{src: "check.png"}/
-    #top-bar
-      #top-bar-row
-        #headline.cell
-          פודי
-        #headlineCenter.cell
-          #blackHole
-            %img#pepper{src: "pepper.png"}/
-        .cell{style: "text-align: right"}
-          Foodie
+    #top-bar-container
+      #top-bar
+        #top-bar-row
+          #headline.cell
+            פודי
+          #headlineCenter.cell
+            #blackHole
+              %img#pepper{src: "pepper.png"}/
+          .cell{style: "text-align: right"}
+            Foodie
     #formContainer
       %form#filterContainer{action: "#", onreset: "setTimeout(updateFilter, 1)", onsubmit: "updateFilter()"}
         %label{for: "filter"} סינון:
