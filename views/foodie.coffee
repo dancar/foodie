@@ -14,6 +14,7 @@ filter = (filter_text, rest_name) ->
 window.updateFilter = () ->
   window.filterText = $("#filter").val()
   window.showRests()
+  $("#filter").blur()
   return false
 
 window.confirmAnnounce = (id, dinner) ->
