@@ -41,9 +41,12 @@ window.rest_visible = (rest) ->
   ans ||= window.currentTab == "dinnersTab" && rest.is_dinner
 
 window.showRests = () ->
+  restsShown = false
   for id, rest of window.restData
     showRest = rest_visible(rest) && filter(window.filterText, rest.name)
+    restsShown ||= showRest
     rest.row.style.display = if showRest then "table-row" else "none"
+  $("#empty")[if restsShown then "hide" else "show"]()
 
 
 $(document).ready ->

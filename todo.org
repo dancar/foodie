@@ -5,5 +5,5 @@
 * DONE Send email
 * TODO Rest Logo Caching
 * DONE filter button
-* TODO "No delivery expected"
+* DONE "No delivery expected"
 * TODO Aggregate simultanous announcements

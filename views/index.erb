@@ -27,7 +27,7 @@
     <div id="top-bar">
       <div id="top-bar-row">
         <div id="headline">
-פודי | Foodie
+          פודי | Foodie
         </div>
       </div>
     </div>
@@ -42,25 +42,32 @@
       <input type="reset" value="נקה"  />
     </form>
 
-    <div id="tabsContainer" >
-      <div id="tabsRow">
-        <div class="tab selectedTab" id="expectedTab">
+    <div id="metatable">
+      <div class="row">
+        <div class="cell">
 
-          משלוחים צפויים
+          <div id="tabsContainer" >
+            <div class="row">
+              <div class="tab selectedTab" id="expectedTab">
 
-        </div>
-        <div class="tab" id="allTab">
+                משלוחים צפויים
 
-          כל המסעדות
+              </div>
+              <div class="tab" id="allTab">
 
-        </div>
+                כל המסעדות
 
-        <div class="tab" id="dinnersTab">
-          ארוחת ערב
+              </div>
+
+              <div class="tab" id="dinnersTab">
+                ארוחת ערב
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="tabsRow" >
+      <div class="row" >
         <div id="tableContainer">
           <div class="restsTable">
             <% @rests.each do |rest_id, rest|
@@ -88,7 +95,16 @@
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="cell" id="empty">
+          לא ידוע לי על משלוחים צפויים.
+        </div>
+      </div>
+
     </div>
+</div>
+</div>
 </div>
 <script type="text/javascript" src="/jquery-1.10.2.min.js"> </script>
 <script type="text/javascript">
