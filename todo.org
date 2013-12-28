@@ -6,4 +6,7 @@
 * TODO Rest Logo Caching
 * DONE filter button
 * DONE "No delivery expected"
+* TODO Fix android native browser issues
+* TODO Safari - "cancel" results in sendingin the announcement
+* TODO Fix weird layouting when in big screen width
 * TODO Aggregate simultanous announcements

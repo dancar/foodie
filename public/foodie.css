@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
+* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -70,7 +70,7 @@ body {
 
 #top-bar-row {
   display: table-row;
-  background-color: rgb(184, 56, 56);
+  background: #d80000;
 }
 
 #headline {
@@ -83,7 +83,7 @@ body {
 }
 
 #headlineCenter {
-  background-color: rgb(184, 56, 56);
+  background-color: #d80000;
   text-align: center;
 }
 
@@ -95,8 +95,8 @@ body {
 }
 
 #pepper {
-  width: 32px;
   height: 32px;
+  margin: 2px;
 }
 
 
@@ -153,7 +153,7 @@ body {
 }
 
 #empty {
-  background-color: rgb(184, 56, 56);
+  background-color: #d80000;
   height: 80px;
   color: white;
   vertical-align: middle;
@@ -169,12 +169,12 @@ body {
 }
 
 .selectedTab {
-  background-color: rgb(184, 56, 56);
+  background-color: #d80000;
   cursor: auto;
 }
 
 #tableContainer {
-  background-color: rgb(184, 56, 56);
+  background-color: #d80000;
   display: table-cell;
 
 }
@@ -236,8 +236,8 @@ body {
   width: 32px;
 }
 
-.restHover .restCheck  {
-  background: rgb(190, 233, 247);
+.restHover  {
+  color: blue;
 }
 
 #cache {
