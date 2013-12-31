@@ -1,12 +1,19 @@
 * DONE add ENV based configuration
 * DONE Fix Dinners
 * DONE Implement  all/only active
-* TODO Switch to HAML?
+* DONE Switch to HAML?
 * DONE Send email
 * TODO Rest Logo Caching
 * DONE filter button
 * DONE "No delivery expected"
 * TODO Fix android native browser issues
-* TODO Safari - "cancel" results in sendingin the announcement
-* TODO Fix weird layouting when in big screen width
+* DONE Safari - "cancel" results in sendingin the announcement
+* DONE Fix weird layouting when in big screen width
 * TODO Aggregate simultanous announcements
+* TODO Don't show "empty" initially
+* TODO Show tab according to hour ( <11 | < 17:30 < *)
+  Can also fall back to full when all expected are announced or when there's no expected
+* TODO GA
+* TODO Sort alphabetically
+* TODO Allow URL-based all/expected/dinner
+* TODO License
