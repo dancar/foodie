@@ -17,3 +17,4 @@
 * TODO Sort alphabetically
 * TODO Allow URL-based all/expected/dinner
 * TODO License
+* TODO Don't allow dinners before dinnertime...
