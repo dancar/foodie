@@ -15,9 +15,10 @@ module GiveByte
     rests = get_rests()
     fetch_rests.each do |id, rest|
       rests[id.to_s] ||= rest
-      rests[id.to_s]['is_expected'] ||= rest['pool_sum'] > 0
+      rests[id.to_s]['is_expected'] ||= (rest['pool_sum'] || 0) > 0
     end
     save_rests(rests)
+    puts "Update successful (#{Time.new})"
   end
 
   def self.get_expected_rests
