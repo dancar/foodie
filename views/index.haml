@@ -33,7 +33,7 @@
       To:
       = @mail_to.split("@").first
     #formContainer
-      %form#filterContainer{action: "#", onreset: "setTimeout(updateFilter, 1)", onsubmit: "return updateFilter()"}
+      %form#filter-container{action: "#", onreset: "setTimeout(updateFilter, 1)", onsubmit: "return updateFilter()"}
         %label{for: "filter"} סינון:
         %input#filter{type: "text"}/
         %input{type: "submit", value: "סנן"}/
