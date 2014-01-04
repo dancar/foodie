@@ -1,3 +1,19 @@
+$red: #d80000;
+
+
+.table {
+  display: table;
+}
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+  width: 1%;
+  vertical-align: middle;
+}
+
 body {
   text-align: center;
   direction: rtl;
@@ -14,32 +30,28 @@ body {
   text-align: center;
   border-bottom: 2px solid black;
   background: #d80000;
-  display: table;
   margin: auto;
   height: 33px;
   font-size: 1.3em;
+  > div {
+    font-weight: bolder;
+    font-family: serif;
+    letter-spacing: 7px;
+    white-space: nowrap;
+    padding: 2px 10px;
+  }
 }
 
-#top-bar-row {
-  display: table-row;
-  background: #d80000;
+#top-bar-right {
+  text-align: right;
 }
 
-#headline {
-  text-align: left;
-  font-weight: bolder;
-  font-family: serif;
-  letter-spacing: 7px;
-  white-space: nowrap;
-  color: white;
-}
-
-#headlineCenter {
-  background-color: #d80000;
+#top-bar-center {
+  width: 32px;
   text-align: center;
 }
 
-#blackHole{
+#black-hole{
   display: inline-block;
   text-align: center;
   border-radius: 16px;
@@ -48,11 +60,16 @@ body {
 
 #pepper {
   height: 32px;
+  width: 32px;
   margin: 2px;
 }
 
+#top-bar-left {
+  text-align: left;
+}
+
 #targetMail {
-  margin-top: 40px;
+  margin-top: 45px;
   color: black;
   font-size: small;
 }
@@ -89,26 +106,13 @@ body {
   width: 340px;
 }
 
-#metatable {
-  display: table;
-  margin: auto;
-  margin-bottom: 20px;
+#table-container {
+  padding: 10px;
+
 }
 
-.row {
-  display: table-row;
-}
+#tabs {
 
-.cell {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-#empty {
-  background-color: #d80000;
-  height: 80px;
-  color: white;
-  vertical-align: middle;
 }
 
 .tab {
@@ -121,56 +125,58 @@ body {
 }
 
 .selectedTab {
-  background-color: #d80000;
+  background-color: $red;
   cursor: auto;
 }
 
-#tableContainer {
-  background-color: #d80000;
-  display: table-cell;
-
+#empty {
+  background-color: $red;
+  height: 80px;
+  color: white;
+  vertical-align: middle;
+  display: none;
 }
 
-.restsTable {
-  display: table;
-  width: 310px;
-  margin: auto;
-  margin-top: 0px;
-  border-spacing: 0px 15px;
+#restsTableContainer {
+  background-color: $red;
+  padding: 0px 10px;
+}
+#restsTable {
+  margin: 0px;
+  width: 100%;
   border-collapse: separate;
+  overflow: hidden;
+  border-spacing: 0px 15px;
 }
 
 .restRow {
-  display: table-row;
   color: navy;
+  > div {
+    display: table-cell;
+    border-top: 8px solid silver;
+    border-bottom: 8px solid silver;
+    background: white;
+    cursor: pointer;
+    vertical-align: middle;
+    height: 80px;
+  }
+}
+
+.restImgContainer {
+  border-right: 10px solid silver;
+  border-radius: 0px 10px 10px 0px;
+  width: 40px;
 }
 
 .restName {
   font-weight: bolder;
   font-size: 1.2em;
   text-align: center;
-  width: 80%;
 }
 
 .restImg {
   width: 75px;
   margin-right: 5px;
-}
-
-.restImgContainer {
-  border-right: 10px solid silver;
-  border-radius: 0px 10px 10px 0px;
-}
-
-.restRowDiv {
-  border-top: 8px solid silver;
-  border-bottom: 8px solid silver;
-  background: white;
-  display: table-cell;
-  cursor: pointer;
-  vertical-align: middle;
-  height: 80px;
-  margin: 10px;
 }
 
 .restCheck {

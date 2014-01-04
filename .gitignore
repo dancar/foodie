@@ -1,3 +1,5 @@
 .env
 Gemfile.lock
 rests.json
+.sass-cache
+.bundle

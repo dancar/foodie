@@ -1,6 +1,5 @@
 require 'net/http'
 require 'json'
-require 'dotenv'
 
 module GiveByte
   def self.reset_rests

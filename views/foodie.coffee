@@ -46,7 +46,8 @@ window.showRests = () ->
     showRest = rest_visible(rest) && filter(window.filterText, rest.name)
     restsShown ||= showRest
     rest.row.style.display = if showRest then "table-row" else "none"
-  $("#empty")[if restsShown then "hide" else "show"]()
+
+  $("#empty").css("display", if restsShown then "none" else "table-cell")
 
 
 $(document).ready ->

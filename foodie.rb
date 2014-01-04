@@ -4,6 +4,7 @@ require 'json'
 require 'pony'
 require 'yaml'
 require 'haml'
+require 'sass'
 require_relative 'givebyte'
 
 YAML.load(File.read(File.expand_path('../.env', __FILE__))).each do |key, value|
@@ -44,6 +45,7 @@ MAIL_DEFAULT_COMMENT = 'בתיאבון...'
 get '/' do
   @is_dinner_time = Time.now > Time.parse(ENV["DINNER_TIME"])
   @rests = GiveByte.get_rests
+  @ordered_rests = @rests.values.sort{|r1, r2| r1['name'] > r2['name'] ? 1 : -1}
   @mail_to = ENV['MAIL_TO']
   haml :index
 end
@@ -52,6 +54,9 @@ get '/foodie.js' do
   coffee :foodie
 end
 
+get '/foodie.css' do
+  scss :foodie
+end
 post '/announce' do
   comments = request['comments']
   comments = MAIL_DEFAULT_COMMENT if comments.blank?

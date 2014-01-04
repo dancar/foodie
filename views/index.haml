@@ -18,18 +18,17 @@
 
   %body
     #cache
-      %img{src: "loading.gif"}/
-      %img{src: "check.png"}/
-      %img{src: "https://cdn4.iconfinder.com/data/icons/imoticons/105/imoticon_20-128.png", width: 32}/
-    #top-bar
-      #top-bar-row
-        #headline.cell{style: "width: 40%"}
-          פודי
-        #headlineCenter.cell
-          #blackHole
-            %img#pepper{src: "pepper.png"}/
-        .cell{style: "text-align: right; width: 40"}
-          Foodie
+      %img{src: "loading.gif"}
+      %img{src: "check.png"}
+      %img{src: "sadly.png", width: 32}
+    #top-bar.table
+      #top-bar-right.cell
+        פודי
+      #top-bar-center.cell
+        #black-hole
+          %img#pepper{src: "pepper.png"}
+      #top-bar-left.cell
+        Foodie
     #targetMail
       To:
       = @mail_to.split("@").first
@@ -39,34 +38,32 @@
         %input#filter{type: "text"}/
         %input{type: "submit", value: "סנן"}/
         %input{type: "reset", value: "נקה"}/
-    #metatable
-      .row
-        .cell
-          #tabsContainer
-            .row
-              #expectedTab.tab.selectedTab
-                משלוחים צפויים
-              #allTab.tab
-                כל המסעדות
-              #dinnersTab.tab
-                ארוחת ערב
-      .row
-        #tableContainer
-          .restsTable
-            - @rests.values.sort{|r1, r2| r1['name'] > r2['name'] ? 1 : -1}.each do |rest|
-            - id = rest["id"]
-              .restRow{id: "rest_#{id}", onclick: "confirmAnnounce(#{id})", style: "display: none;"}
-                .restRowDiv.restImgContainer
-                  %img.restImg{src: rest["logo"]}/
-                .restRowDiv.restName
-                  = rest["name"]
-                .restRowDiv.restCheck
-                  %img.restCheckImg{id: "status_img_#{id}", src: rest["announced"] ? "check.png" : "pending.gif", title: "מצב שליחת הודעה"}/
-      .row
-        #empty.cell
-          %img{src: "https://cdn4.iconfinder.com/data/icons/imoticons/105/imoticon_20-128.png", width: 32}/
-          %br
-          אין
+
+    #table-container
+      #tabs.table
+        #expectedTab.cell.tab.selectedTab
+          משלוחים צפויים
+        #allTab.cell.tab
+          כל המסעדות
+        #dinnersTab.cell.tab
+          ארוחת ערב
+
+      #restsTableContainer
+        #restsTable.table
+          - @ordered_rests.each do |rest|
+          - id = rest["id"]
+            .restRow.row{id: "rest_#{id}", onclick: "confirmAnnounce(#{id})", style: "display: none;"}
+              .restImgContainer
+                %img.restImg{src: rest["logo"]}
+              .restName
+                = rest["name"]
+              .restCheck
+                %img.restCheckImg{id: "status_img_#{id}", src: rest["announced"] ? "check.png" : "pending.gif", title: "מצב שליחת הודעה"}
+  .row
+    #empty.cell
+      %img{src: "sadly.png", width: 32}/
+      %br
+      אין
     %script{src: "/jquery-1.10.2.min.js", type: "text/javascript"} :cdata
     :javascript
       window.restData = #{@rests.to_json}
