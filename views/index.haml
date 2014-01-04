@@ -59,11 +59,11 @@
                 = rest["name"]
               .restCheck
                 %img.restCheckImg{id: "status_img_#{id}", src: rest["announced"] ? "check.png" : "pending.gif", title: "מצב שליחת הודעה"}
-  .row
-    #empty.cell
-      %img{src: "sadly.png", width: 32}/
-      %br
-      אין
+        #empty.cell
+          %img{src: "sadly.png", width: 32}/
+          %br
+          אין
+
     %script{src: "/jquery-1.10.2.min.js", type: "text/javascript"} :cdata
     :javascript
       window.restData = #{@rests.to_json}
