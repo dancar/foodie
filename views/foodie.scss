@@ -130,8 +130,6 @@ body {
   color: navy;
   > div {
     display: table-cell;
-    border-top: 8px solid silver;
-    border-bottom: 8px solid silver;
     background: white;
     cursor: pointer;
     vertical-align: middle;
@@ -141,7 +139,6 @@ body {
 }
 
 .restImgContainer {
-  border-right: 10px solid silver;
   border-radius: 0px $rest-radius $rest-radius 0px;
   width: 40px;
 }
@@ -158,10 +155,6 @@ body {
 }
 
 .restCheck {
-  border-right: 0px;
-  border-left-width: 8px;
-  border-style: solid;
-  border-color: silver;
   border-top-left-radius: $rest-radius;
   border-bottom-left-radius: $rest-radius;
   padding: 0px 10px;
