@@ -1,3 +1,4 @@
+
 * DONE add ENV based configuration
 * DONE Fix Dinners
 * DONE Implement  all/only active
@@ -18,3 +19,4 @@
 * TODO Allow URL-based all/expected/dinner
 * TODO License
 * TODO Don't allow dinners before dinnertime...
+* TODO Hover CSS for tabs

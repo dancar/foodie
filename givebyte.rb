@@ -38,7 +38,7 @@ private
   RESTS_FILE = File.expand_path('../rests.json', __FILE__)
 
   def self.load_rests()
-    JSON.parse(File.read RESTS_FILE)
+    JSON.parse(File.read(RESTS_FILE).force_encoding('utf-8'))
   end
 
   def self.save_rests(rests)
