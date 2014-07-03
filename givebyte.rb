@@ -30,6 +30,7 @@ module GiveByte
     all_rests = load_rests()
     rest = all_rests[rest_id]
     rest['announced'] = true
+    rest['is_expected'] = true
     self.save_rests(all_rests)
   end
 
